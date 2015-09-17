@@ -12,11 +12,20 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'WTFPL', :file => 'LICENSE' }
   s.author       = { "Bryce Hammond" => "bryce.hammond@imulus.com" }
   s.source       = { :git => "https://github.com/imulus/UIView-IMUUtilities.git", :tag => "0.0.1" }
-  s.platform     = :ios, '5.0'
+  s.ios.deployment_target = "5.0"
 
-  s.source_files = 'Classes', 'Classes/**/*.{h,m}'
-  s.exclude_files = 'Classes/Exclude'
   s.framework  = 'QuartzCore'
   s.requires_arc = true
+
+	s.subspec 'Core' do |sp|
+	  sp.source_files = 'Pod/Core/*.{h,m}'
+  end
+
+  s.subspec 'Swift' do |sp|
+    sp.source_files = 'Pod/Swift/*.h'
+    sp.dependency 'UIView-IMUUtilities/Core'
+  end
+
+  s.default_subspecs = 'Core'
 
 end

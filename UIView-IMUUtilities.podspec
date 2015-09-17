@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
     sp.dependency 'UIView-IMUUtilities/Core'
   end
 
-  s.default_subspecs = 'Core'
+  s.default_subspecs = 'Swift'
 
 end

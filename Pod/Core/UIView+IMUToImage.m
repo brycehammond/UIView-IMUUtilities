@@ -13,8 +13,8 @@
 
 - (UIImage *)image
 {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0f);
-    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0f);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage * snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return snapshotImage;
